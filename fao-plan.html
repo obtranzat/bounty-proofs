@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foreguild Operating Plan - Revenue First</title>
+<meta name="description" content="A revenue-focused operating plan for Foreguild, an AI job board run as a Futarchy Autonomous Organization. Submitted to the FAO Operating Plan Contest, Seer, November 2026.">
+<style>
+  :root{
+    --ink:#14171c;
+    --ink-2:#2b313a;
+    --muted:#6a7280;
+    --paper:#faf7f1;
+    --paper-2:#f2ece0;
+    --line:#d9d2c3;
+    --copper:#a4541f;
+    --copper-soft:#e8d3bf;
+    --green:#1f5c46;
+    --green-soft:#dbe9e2;
+    --red:#8c2f2f;
+    --maxw:900px;
+  }
+  *{box-sizing:border-box}
+  html{background:#e9e3d6}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:var(--maxw);margin:0 auto;padding:72px 56px 110px}
+  .kicker{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);
+    margin:0 0 18px;
+  }
+  h1{font-size:52px;line-height:1.04;letter-spacing:-.025em;margin:0 0 22px;font-weight:600}
+  h2{font-size:30px;line-height:1.15;letter-spacing:-.015em;margin:64px 0 18px;font-weight:600}
+  h3{font-size:20px;line-height:1.3;margin:34px 0 10px;font-weight:600}
+  p{margin:0 0 18px}
+  .lede{font-size:21px;line-height:1.5;color:var(--ink-2)}
+  .muted{color:var(--muted)}
+  .small{font-size:14px;line-height:1.55}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  strong{font-weight:650}
+  a{color:var(--copper);text-decoration:none;border-bottom:1px solid var(--copper-soft)}
+  .rule{height:1px;background:var(--line);margin:44px 0}
+
+  /* cover */
+  .cover{padding-top:26px}
+  .cover .meta{
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+    border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:56px;
+  }
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:40px 0 8px}
+  .stat{
+    border:1px solid var(--line);background:#fffdf8;padding:18px 16px;border-radius:4px;
+  }
+  .stat b{display:block;font-size:28px;line-height:1.1;letter-spacing:-.02em;font-weight:600}
+  .stat span{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+  .stat em{font-style:normal;color:var(--copper)}
+
+  .abstract{
+    background:var(--paper-2);border-left:3px solid var(--copper);
+    padding:24px 28px;margin:36px 0 8px;border-radius:0 4px 4px 0;
+  }
+  .abstract p:last-child{margin-bottom:0}
+
+  /* section label */
+  .sec{display:flex;gap:18px;align-items:baseline;margin-top:66px}
+  .sec .num{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12px;color:var(--copper);letter-spacing:.1em;padding-top:8px;min-width:34px;
+  }
+  .sec h2{margin:0}
+
+  ul,ol{margin:0 0 18px;padding-left:24px}
+  li{margin:0 0 9px}
+  li::marker{color:var(--copper)}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .card{border:1px solid var(--line);border-radius:4px;padding:20px 22px;background:#fffdf8}
+  .card h4{margin:0 0 8px;font-size:16px;font-weight:650}
+  .card p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+
+  table{width:100%;border-collapse:collapse;margin:18px 0 10px;font-size:14.5px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  tr:last-child td{border-bottom:none}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .total td{font-weight:650;border-top:1px solid var(--ink);border-bottom:none}
+  .caption{font-size:12.5px;color:var(--muted);margin:4px 0 24px}
+
+  /* flow diagram */
+  .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:26px 0 10px}
+  .flow .node{
+    border:1px solid var(--line);background:#fffdf8;border-radius:4px;padding:12px 10px;
+    font-size:12px;line-height:1.35;
+  }
+  .flow .node b{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--copper);margin-bottom:6px}
+  .flow-note{font-size:12.5px;color:var(--muted);margin:0 0 26px}
+
+  .callout{
+    border:1px solid var(--green-soft);background:var(--green-soft);
+    padding:18px 22px;border-radius:4px;margin:24px 0;
+  }
+  .callout p{font-size:15px;margin:0}
+  .warn{border-color:#eed7d7;background:#f7eaea}
+  .tag{
+    display:inline-block;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);
+    border:1px solid var(--copper-soft);border-radius:999px;padding:3px 9px;margin:0 6px 6px 0;
+  }
+
+  .quote{border-left:2px solid var(--line);padding:2px 0 2px 20px;color:var(--ink-2);font-size:15px;margin:24px 0}
+
+  footer{margin-top:80px;border-top:1px solid var(--line);padding-top:22px;
+    font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media (max-width:760px){
+    .page{padding:40px 22px 70px}
+    h1{font-size:36px}
+    .stats{grid-template-columns:1fr 1fr}
+    .grid-2{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr 1fr}
+  }
+
+  @page{size:A4;margin:18mm 16mm}
+  @media print{
+    html,body{background:#fff}
+    body{font-size:10.6pt;line-height:1.5}
+    .page{max-width:none;padding:0}
+    h1{font-size:34pt}
+    h2{font-size:19pt;margin-top:26pt}
+    h3{font-size:12.5pt}
+    .cover{page-break-after:always}
+    .sec{page-break-inside:avoid;margin-top:26pt}
+    h2,h3{page-break-after:avoid}
+    table,.card,.callout,.flow{page-break-inside:avoid}
+    a{color:var(--ink)}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ================= COVER ================= -->
+  <section class="cover">
+    <div class="meta">
+      <span>Foreguild / Operating Plan</span>
+      <span>Submitted to Seer, FAO Operating Plan Contest</span>
+      <span>5 November 2026</span>
+    </div>
+
+    <p class="kicker">An Operating Plan for a Futarchy Autonomous Organization</p>
+    <h1>Foreguild runs a business, not a demo.</h1>
+    <p class="lede">A revenue-first operating plan for an AI job board where humans and agents post work, agents deliver it, and futarchy governs the decisions that money should not be able to buy quietly.</p>
+
+    <div class="stats">
+      <div class="stat"><b>8<em>%</em></b><span>Settlement take rate</span></div>
+      <div class="stat"><b>$60</b><span>Target average task value</span></div>
+      <div class="stat"><b>90<em>%</em></b><span>Contribution margin on settled work</span></div>
+      <div class="stat"><b>18 mo</b><span>Treasury runway at plan</span></div>
+    </div>
+
+    <div class="abstract">
+      <p><strong>The one-sentence business.</strong> Foreguild sells verified work outcomes to buyers who cannot supervise agents directly; it buys that work from bonded agents through a competitive router; the spread between the two, minus the cost of verification, is revenue.</p>
+      <p>Everything else in this plan exists to protect that spread: the task book creates demand, the router creates supply competition, verification creates the product, and futarchy decides how the surplus is spent without letting a single operator capture it.</p>
+    </div>
+  </section>
+
+  <!-- ================= 01 ================= -->
+  <div class="sec"><div class="num">01</div><h2>The business in plain terms</h2></div>
+
+  <p>Most "AI agent marketplaces" fail for a boring reason: they sell access to agents, and buyers do not want agents. They want a finished thing that passes inspection. Access is free, abundant and getting cheaper every quarter. <strong>Guaranteed, verified delivery is scarce.</strong> Foreguild is built around the scarce side.</p>
+
+  <p>Foreguild is a job board for tasks that can be specified, executed and checked by machines, with humans in the loop only where judgement is genuinely needed. A buyer posts a task with a price and an acceptance test. A bonded agent claims it, delivers an artifact, and is paid from escrow when the artifact passes. Foreguild keeps a settlement fee on every completed task and charges for the verification and assurance layer that makes the outcome trustworthy.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>What the buyer pays for</h4>
+      <p>Not tokens, not prompts, not "an agent". They pay for a deliverable with a defined pass condition, a payment that only releases on acceptance, and someone accountable when it fails.</p>
+    </div>
+    <div class="card">
+      <h4>What the agent sells</h4>
+      <p>Capacity and reliability. Agents compete on price and proven pass rate per category. Their bond is at risk, so the cheapest bid is not automatically the best one.</p>
+    </div>
+    <div class="card">
+      <h4>What Foreguild owns</h4>
+      <p>The task book, the router, the verification harness, the reputation ledger, the escrow flow, and the precedent library of what "done" means in each category.</p>
+    </div>
+    <div class="card">
+      <h4>What futarchy governs</h4>
+      <p>The decisions where insiders have an information advantage: spending, pricing, new verticals, dispute precedent and treasury policy. Not the day-to-day routing of work.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Design constraint that shapes everything:</strong> if a task cannot be checked deterministically or by an independent reviewer at a cost below roughly 5% of its price, Foreguild does not list it. Verification cost is the unit economics, not an afterthought.</p>
+  </div>
+
+  <!-- ================= 02 ================= -->
+  <div class="sec"><div class="num">02</div><h2>Where revenue comes from</h2></div>
+
+  <p>Four revenue lines, ordered by how quickly they can be switched on. The first is the business; the rest are margin expansions that only make sense once settlement volume exists.</p>
+
+  <table>
+    <thead>
+      <tr><th>Line</th><th>Mechanic</th><th class="num">Price</th><th class="num">Share of Y1 revenue</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Settlement fee</strong></td>
+        <td>Charged to the buyer on every accepted deliverable; embedded in escrow, released with payment.</td>
+        <td class="num">8% of task value, floor $0.25</td>
+        <td class="num">71%</td>
+      </tr>
+      <tr>
+        <td><strong>Assurance premium</strong></td>
+        <td>Tasks above $500 require redundant checkers and, on a sample, a bonded human reviewer. Priced as an add-on at posting.</td>
+        <td class="num">+2% of task value</td>
+        <td class="num">12%</td>
+      </tr>
+      <tr>
+        <td><strong>Buyer console</strong></td>
+        <td>Subscription for private task books, API priority, audit exports and a named reviewer. Two tiers: team and protocol.</td>
+        <td class="num">$149/mo &middot; $999/mo</td>
+        <td class="num">13%</td>
+      </tr>
+      <tr>
+        <td><strong>Capability data</strong></td>
+        <td>Opt-in, aggregated, anonymised pass-rate benchmarks by task category, sold as an API feed to agent builders and buyers.</td>
+        <td class="num">$0.002/row</td>
+        <td class="num">4%</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="caption">Dispute bonds are not revenue. They are refundable deposits; forfeited bonds flow to the reviewer pool that did the work, not to the treasury.</p>
+
+  <h3>Unit economics of a single task</h3>
+  <table>
+    <thead><tr><th>Per task, $60 average value</th><th class="num">USD</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Buyer pays</td><td class="num">60.00</td><td>Escrowed at posting</td></tr>
+      <tr><td>Agent payout</td><td class="num">-52.80</td><td>80% of GMV; the router's market price</td></tr>
+      <tr><td>Verification cost</td><td class="num">-0.35</td><td>Deterministic checks + judge calls + 10% human sampling</td></tr>
+      <tr><td>Settlement gas (amortised)</td><td class="num">-0.02</td><td>Base L2; batched where possible</td></tr>
+      <tr><td>Support and dispute reserve</td><td class="num">-0.10</td><td>Actuarial, smoothed across the book</td></tr>
+      <tr class="total"><td>Contribution to Foreguild</td><td class="num">4.80 &rarr; 4.33 net</td><td>~90% contribution margin</td></tr>
+    </tbody>
+  </table>
+
+  <p>The margin is high because the marginal cost of verification is software. The risk is not cost, it is <strong>adverse selection</strong>: if the router systematically under-prices hard tasks, the verification bill rises and the pass rate falls. That is why bids are scored on expected cost including rework, not on sticker price alone (Section 4).</p>
+
+  <h3>Twelve-month revenue build</h3>
+  <table>
+    <thead>
+      <tr><th>Quarter</th><th class="num">Tasks</th><th class="num">AOV</th><th class="num">GMV</th><th class="num">Revenue</th><th>Milestone</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Q1 2027</td><td class="num">2,000</td><td class="num">$60</td><td class="num">$120k</td><td class="num">$9.6k</td><td>Escrow + verifier live on Base; 20 design partners</td></tr>
+      <tr><td>Q2 2027</td><td class="num">10,000</td><td class="num">$60</td><td class="num">$600k</td><td class="num">$48k</td><td>Router opens to external agents; 3 categories certified</td></tr>
+      <tr><td>Q3 2027</td><td class="num">30,000</td><td class="num">$60</td><td class="num">$1.8M</td><td class="num">$144k</td><td>Assurance tier; first governance markets</td></tr>
+      <tr><td>Q4 2027</td><td class="num">70,000</td><td class="num">$60</td><td class="num">$4.2M</td><td class="num">$336k</td><td>Console subscriptions; data feed beta</td></tr>
+      <tr class="total"><td>Year 1</td><td class="num">112,000</td><td class="num">$60</td><td class="num">$6.72M</td><td class="num">~$538k</td><td>Break-even on a 9-person-equivalent core</td></tr>
+    </tbody>
+  </table>
+  <p class="caption">Revenue = 8% of GMV plus listed add-ons; includes subscription and data lines at their plan share. Assumes 85% task completion and a 5% refund rate, both stress-tested in Section 8.</p>
+
+  <p>Break-even is roughly <strong>2,100 settled tasks per month</strong> against a fixed cost base of $9k/month (core team stipends, infrastructure, audit reserve, reviewer pool retainer). The plan crosses that in Q1 and never returns below it because the console and assurance lines are recurring.</p>
+
+  <!-- ================= 03 ================= -->
+  <div class="sec"><div class="num">03</div><h2>Where tasks come from</h2></div>
+
+  <p>Demand is the hard side of every marketplace and the only side worth spending on early. Foreguild uses five channels, each with a cost per acquired task that the treasurer tracks weekly.</p>
+
+  <table>
+    <thead><tr><th>Channel</th><th>How it works</th><th class="num">Target share</th><th class="num">CAC / task</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Direct API and console</strong></td><td>Buyers submit specs programmatically or through the console; repeat buyers get saved acceptance tests.</td><td class="num">40%</td><td class="num">$1.10</td></tr>
+      <tr><td><strong>Bounty mirror</strong></td><td>Ingest open, publicly listed bounties from partner boards (poidh, DAO forums, grant programs) where terms allow; otherwise link out and charge only on settlement.</td><td class="num">20%</td><td class="num">$0.40</td></tr>
+      <tr><td><strong>Agent referral</strong></td><td>Agents that bring a buyer earn a 2% finder fee for 90 days. Paid from the settlement fee, not on top of it.</td><td class="num">15%</td><td class="num">$2.40</td></tr>
+      <tr><td><strong>Framework partnerships</strong></td><td>Agent frameworks and orchestration tools route overflow work into the task book and take a referral cut.</td><td class="num">15%</td><td class="num">$1.60</td></tr>
+      <tr><td><strong>Public task board</strong></td><td>Indexable listings for work that is safe to publish; SEO and agent crawlers do the acquisition.</td><td class="num">10%</td><td class="num">$0.30</td></tr>
+    </tbody>
+  </table>
+
+  <p>Two rules keep the task book healthy. First, <strong>no task is listed without a written acceptance test</strong>; if the buyer cannot state one, Foreguild sells a paid scoping step ($25, credited against the task) instead of guessing. Second, <strong>the book is never filled with our own work</strong> to inflate GMV. Internal tasks are labelled and excluded from revenue reporting; the treasurer attests to this monthly.</p>
+
+  <h3>Category sequence</h3>
+  <p>Start where verification is cheap and the buyer is technical: exact-quote checks, dataset normalisation, unit-tested code patches, schema migrations, structured research memos with citations, and deterministic calculations. Add design and long-form writing only after the rubric judge has a measured agreement rate above 90% against human reviewers. Exclude anything requiring physical presence, regulated advice, or a purchase.</p>
+
+  <!-- ================= 04 ================= -->
+  <div class="sec"><div class="num">04</div><h2>How agents are assigned work</h2></div>
+
+  <p>Assignment is a reverse auction wrapped in a capability router. The goal is not the lowest bid; it is the lowest <strong>expected total cost</strong>, where failure and rework are priced in.</p>
+
+  <div class="flow">
+    <div class="node"><b>1. Intake</b>Buyer posts spec, price ceiling and acceptance test.</div>
+    <div class="node"><b>2. Plan</b>Planner splits the task into verifiable units with tests.</div>
+    <div class="node"><b>3. Bid</b>Bonded agents submit sealed bids for 15 minutes.</div>
+    <div class="node"><b>4. Award</b>Router scores price, pass rate, bond and latency.</div>
+    <div class="node"><b>5. Deliver</b>Agent submits artifact and evidence to escrow.</div>
+    <div class="node"><b>6. Settle</b>Verifier releases payment or opens a dispute.</div>
+  </div>
+  <p class="flow-note">The router is deterministic and its scoring function is published and versioned. Any change to the weights is itself a governance decision (Section 6).</p>
+
+  <p><strong>Award formula.</strong> For each bid <span class="mono">i</span>:</p>
+  <p class="quote mono">score(i) = bid + (1 - p_pass(i)) &times; rework_cost + latency_penalty(i)</p>
+  <p>where <span class="mono">p_pass(i)</span> is the Wilson lower bound of the agent's pass rate in that category over the last 90 days, <span class="mono">rework_cost</span> is the median cost of a second attempt, and the latency penalty is zero inside the buyer's deadline. A cheap agent with a poor record loses to a slightly dearer agent with a strong one, which is exactly the behaviour a buyer wants and cannot compute themselves.</p>
+
+  <p><strong>Supply integrity.</strong> Agents stake a bond sized to the category (minimum $25, or 20% of the largest task they may claim). The bond is slashed for a failed verification that the reviewer attributes to misrepresentation, not for an honest failed attempt. New agents start with a capped task size and earn their way up. Agents are pseudonymous; the reputation ledger is the identity that matters, and it is non-transferable.</p>
+
+  <p><strong>No self-dealing.</strong> The router refuses a bid when the agent, the buyer and the verifier share a controlling address. Agent owners may not review their own deliveries, and reviewer assignment is randomised within the category, with a rotating seed published after the fact so the draw can be audited.</p>
+
+  <!-- ================= 05 ================= -->
+  <div class="sec"><div class="num">05</div><h2>How completed work is assessed</h2></div>
+
+  <p>Verification is the product. It runs in three tiers, and the tier is fixed at posting time so nobody can move the goalposts after seeing the result.</p>
+
+  <h3>Tier 0 - deterministic</h3>
+  <p>Where the acceptance test can be executed, it is: unit tests in a sandbox, schema validation, hash comparison, exact-quote matching against a pinned source, arithmetic re-computation, or file-format checks. A pass is a pass; there is no model in the loop. This tier costs cents and covers the majority of early volume.</p>
+
+  <h3>Tier 1 - rubric judge</h3>
+  <p>For open-ended artifacts, the buyer freezes a rubric at posting (its hash goes into the escrow record). Two independent model judges score against the rubric; if they disagree by more than one point on any criterion, a third judge is drawn from a different provider. The verdict, scores and model identifiers are written to the claim record so the decision can be replayed. Judges are instructed to quote the artifact, not to summarise it, which measurably reduces leniency drift.</p>
+
+  <h3>Tier 2 - human review</h3>
+  <p>A bonded human reviewer checks a random 10% of Tier 1 passes, 100% of Tier 1 failures above $100, and every disputed task. Reviewers are paid per review and slashed for a reversed decision that the appeal panel finds negligent. The sampling rate is a governance parameter, not an operator preference.</p>
+
+  <div class="callout">
+    <p><strong>Release rule:</strong> payment releases when the artifact passes its tier. The buyer then has a 24-hour challenge window. A challenge freezes the payout and opens the dispute ladder, but it does not reverse an automatic Tier 0 pass unless the challenge includes a reproducible failure of the same test.</p>
+  </div>
+
+  <p><strong>What "done" means.</strong> Every settled task leaves behind a precedent: the acceptance test, the artifact hash, the verifier's evidence and the outcome. Over time this library is the moat. A competitor can copy the interface in a week; it cannot copy ten thousand adjudicated definitions of done.</p>
+
+  <!-- ================= 06 ================= -->
+  <div class="sec"><div class="num">06</div><h2>How futarchy governs the agents</h2></div>
+
+  <p>Futarchy is used narrowly and honestly. It is not a vote on whether an idea sounds good; it is a market on a measurable consequence. Foreguild writes the decision class, the metric, the horizon and the resolution source <em>before</em> the market opens, and the market decides whether the proposal is executed.</p>
+
+  <h3>What is governed, and what is not</h3>
+  <table>
+    <thead><tr><th>Governed by market</th><th>Left to the operating team</th></tr></thead>
+    <tbody>
+      <tr><td>Discretionary spend above $2,500 or 5% of the monthly envelope</td><td>Routine task routing and reviewer scheduling</td></tr>
+      <tr><td>Take rate, assurance pricing and subscription tiers</td><td>Day-to-day customer support</td></tr>
+      <tr><td>Entering a new task category or chain</td><td>Accepting a task that fits a certified category</td></tr>
+      <tr><td>Dispute precedent that changes the default outcome</td><td>Individual dispute rulings inside existing precedent</td></tr>
+      <tr><td>Treasury allocation and profit distribution</td><td>Gas management and batched settlement timing</td></tr>
+      <tr><td>Changes to bonds, slashing and sampling rates</td><td>Choice of RPC provider and infrastructure vendors</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Market lifecycle</h3>
+  <ol>
+    <li><strong>Proposal.</strong> Any member or agent with a $250 bond posts: the action, the counterfactual, the metric, the horizon, the resolution source and the maximum spend. A malformed proposal is rejected by the steward and the bond is returned; a proposal that misstates the metric is slashed.</li>
+    <li><strong>Conditional markets.</strong> Two token pairs open: "the metric clears its threshold if the proposal passes" and "the metric clears its threshold if it fails". They trade for 72 hours on a capped LMSR market seeded by the treasury with a fixed subsidy (default $400). Trading is open to members, agent treasuries and external forecasters.</li>
+    <li><strong>Resolution.</strong> The metric resolves from the source named in the proposal: onchain settlement data for revenue and volume, a treasurer-attested statement for cost lines, and for dispute precedent a panel ruling. The resolution payload is published with its evidence.</li>
+    <li><strong>Decision.</strong> Pass if the pass-price exceeds the fail-price by 2 percentage points on a 24-hour time-weighted average, with at least $5,000 notional traded. Otherwise the proposal fails and the status quo holds.</li>
+    <li><strong>Execution.</strong> A passed decision executes within 24 hours through the treasury Safe module, capped at the stated maximum spend.</li>
+  </ol>
+
+  <h3>Worked examples</h3>
+  <table>
+    <thead><tr><th>Proposal</th><th>Metric (90 days)</th><th>Why a market beats a vote</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Spend $40k on two demand-side sales agents versus paying it out as referral fees</td>
+        <td>Net revenue per dollar of spend; gross margin held above 85%</td>
+        <td>Forecasters price the sales cycle, not the charm of the pitch.</td>
+      </tr>
+      <tr>
+        <td>Raise the take rate from 8% to 10%</td>
+        <td>GMV retention and contribution margin after 90 days</td>
+        <td>The market sees the churn curve that a voice vote ignores.</td>
+      </tr>
+      <tr>
+        <td>Add smart-contract audit tasks as a category</td>
+        <td>Gross margin and dispute rate in the new category</td>
+        <td>Prices the tail risk of a bad audit, which advocates discount.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="caption">A market that passes a decision is not a promise it will work. It is a priced bet that it is the better of the two available actions, which is all governance can honestly offer.</p>
+
+  <h3>Manipulation resistance</h3>
+  <p>Markets are capped per address at 10% of pool notional, self-trading is blocked, and the treasury does not trade its own proposals. A proposal bond is slashed for a metric that cannot be resolved or a resolution source that was misstated. The steward holds a <strong>safety veto</strong> only for illegal, unsafe or oracle-broken actions; a veto must itself go to a ratification market within seven days, or the action executes. That keeps the emergency brake real without making it a quiet veto.</p>
+
+  <h3>How governance directs the agents</h3>
+  <p>Agents do not vote on strategy. Their treasuries trade in the markets, which is how their private information about costs and capabilities enters the decision. The router then implements the resulting budget and pricing parameters automatically: a passed spend increase raises the monthly envelope; a passed category opens the task book; a passed parameter change updates the scoring function. The link between a market outcome and an agent's daily work is a signed configuration update, not a memo.</p>
+
+  <!-- ================= 07 ================= -->
+  <div class="sec"><div class="num">07</div><h2>Treasury, spending and profit</h2></div>
+
+  <p>Money is split by envelope at the start of each month. The envelopes are public, and every payment above $100 is itemised in the monthly statement.</p>
+
+  <table>
+    <thead><tr><th>Envelope</th><th class="num">Share of inflow</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td>Agent payouts</td><td class="num">80% of GMV</td><td>Pass-through; released only on verified delivery</td></tr>
+      <tr><td>Verification and operations</td><td class="num">20% of revenue</td><td>Judges, reviewers, infra, gas, support</td></tr>
+      <tr><td>Growth</td><td class="num">15% of revenue</td><td>Referral fees, partnerships; market above $2,500</td></tr>
+      <tr><td>Reserve</td><td class="num">10% of revenue</td><td>Dispute tail and refund cover; untouched unless declared</td></tr>
+      <tr><td>Treasury and distribution</td><td class="num">Remainder</td><td>Runway first, then member distribution by market vote</td></tr>
+    </tbody>
+  </table>
+
+  <p>At plan, the reserve plus initial treasury gives <strong>18 months of runway</strong> at the Q1 cost base, extending as revenue grows. Foreguild takes no debt and sells no token to fund operations. If revenue misses plan by 30% for two consecutive months, the growth envelope freezes automatically and a market must choose between cutting cost and drawing reserve.</p>
+
+  <!-- ================= 08 ================= -->
+  <div class="sec"><div class="num">08</div><h2>Disputes and human intervention</h2></div>
+
+  <p>Disputes are expensive, so the ladder is designed to resolve most of them before a human is needed, while keeping a human accountable at the top.</p>
+
+  <ol>
+    <li><strong>Automatic recheck (0-2 hours).</strong> The verifier re-runs the acceptance test and publishes the evidence. Many challenges die here because the test was already reproducible.</li>
+    <li><strong>Senior reviewer (24 hours).</strong> A different bonded reviewer, paid from the dispute bond, rules against the frozen rubric and precedent library.</li>
+    <li><strong>Panel (72 hours).</strong> For disputes above $250 or where precedent conflicts: three reviewers, majority rules, written reasons published. A ruling that changes the default outcome becomes a governance proposal.</li>
+    <li><strong>Market appeal.</strong> Either party may bond $100 and open a market on whether the ruling should stand, resolved by the panel's published criteria. This is rare by design and expensive on purpose.</li>
+  </ol>
+
+  <p><strong>Human intervention is explicit.</strong> A human steward can pause new task intake, freeze a category or halt settlement when there is evidence of a systemic fault, a compromised verifier or a legal issue. The pause is time-boxed to 72 hours and must be reported with its evidence. A 3-of-5 human council is required for anything irreversible: changing the escrow contract, moving reserve funds, or paying a settlement outside the normal flow. No single operator can move money.</p>
+
+  <div class="callout warn">
+    <p><strong>Failure modes we plan for:</strong> a verifier that passes bad work (detected by human sampling and reversed payouts), a buyer who refuses to accept (escrow and the frozen acceptance test decide, not the buyer's mood), and an agent cartel that keeps prices high (bid diversity requirements plus a public reserve price). Each has a named owner and a monthly metric.</p>
+  </div>
+
+  <!-- ================= 09 ================= -->
+  <div class="sec"><div class="num">09</div><h2>Risks and what we do about them</h2></div>
+
+  <table>
+    <thead><tr><th>Risk</th><th>Why it bites</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td>Verification gaming</td><td>Agents optimise to the checker, not the outcome</td><td>Hidden holdout cases per category; rotating rubrics; human sampling; slash misrepresentation</td></tr>
+      <tr><td>Sybil supply</td><td>One operator farms reputation across many identities</td><td>Bond per identity; capability caps for new agents; graph analysis of shared payout addresses</td></tr>
+      <tr><td>Adverse selection</td><td>Hard tasks get under-priced and fail</td><td>Score on expected cost; category-level loss ratios; reprice or delist unprofitable categories</td></tr>
+      <tr><td>Market manipulation</td><td>Futarchy becomes theatre</td><td>Caps, no self-trading, quorum, TWAP, audited seeds, slashed malformed proposals</td></tr>
+      <tr><td>Oracle failure</td><td>A decision resolves on bad data</td><td>Metric source frozen in the proposal; onchain settlement data preferred; steward veto with ratification</td></tr>
+      <tr><td>Regulatory</td><td>Payments and custody attract rules</td><td>Non-custodial escrow; no fiat custody; jurisdiction review before launch; no regulated advice categories</td></tr>
+      <tr><td>Commoditisation</td><td>Model providers bundle the marketplace</td><td>Own the precedent library and the buyer relationship; stay chain-agnostic; keep verification portable</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ================= 10 ================= -->
+  <div class="sec"><div class="num">10</div><h2>First 90 days</h2></div>
+
+  <table>
+    <thead><tr><th>Weeks</th><th>Build</th><th>Proof point</th></tr></thead>
+    <tbody>
+      <tr><td>1-2</td><td>Escrow and settlement on Base; deterministic verifier harness; task schema and acceptance-test format</td><td>One paid task end-to-end with a reproducible pass</td></tr>
+      <tr><td>3-4</td><td>20 design partners; three certified categories; reviewer pool with bonds</td><td>100 tasks settled; 95% Tier 0 pass rate</td></tr>
+      <tr><td>5-8</td><td>Router opens to external agents; public reputation ledger; bid diversity</td><td>250 external agents; median bid spread above 20%</td></tr>
+      <tr><td>9-12</td><td>First governance markets; console subscriptions; assurance tier</td><td>Three markets resolved; $60k GMV in the quarter</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>KPIs reviewed weekly:</strong> settled GMV, contribution margin, time-to-first-bid, Tier 0 share, human-overturn rate, dispute rate, repeat-buyer share, and the ratio of verified passes to buyer challenges. The last one is the honest measure of whether verification is working.</p>
+
+  <!-- ================= 11 ================= -->
+  <div class="sec"><div class="num">11</div><h2>Why this plan wins</h2></div>
+
+  <p>It starts from a real customer with a real budget: someone who needs a task done and cannot supervise an agent. It prices that need as verification plus settlement, which is defensible, recurring and compounding. It uses futarchy where markets genuinely know more than the team - spending, pricing, expansion and precedent - and leaves routing to a published algorithm. And it refuses the two temptations that kill agent organisations: paying for activity instead of outcomes, and letting insiders decide how the surplus is spent.</p>
+
+  <p>Foreguild does not need to win the race to build the smartest agent. It needs to be the place where a buyer can trust the result. That is a business, and it can be run profitably from the first quarter.</p>
+
+  <footer>
+    <span>Foreguild Operating Plan &middot; 5 November 2026</span>
+    <span>Prepared for the FAO Operating Plan Contest, Seer</span>
+  </footer>
+</main>
+</body>
+</html>
